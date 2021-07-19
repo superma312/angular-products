@@ -2,6 +2,16 @@
 
 .products-wrapper {
   margin: 2rem;
+  overflow-x: auto;
+  height: calc(100% - 4rem);
+
+  table {
+    width: 100%;
+  }
+
+  .loading-wrapper {
+    height: 100%;
+  }
 
   .label {
     background-color: $primary;
