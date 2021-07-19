@@ -1,0 +1,15 @@
+@import "../../../variables.scss";
+
+.product-modal {
+  .title {
+    width: 100%;
+  }
+
+  .label {
+    background-color: $primary;
+    color: #fff;
+    border-radius: 10px;
+    padding: 0.3rem 0.5rem;
+    margin: 0.3rem;
+  }
+}

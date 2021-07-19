@@ -1,0 +1,43 @@
+<div class="products-wrapper">
+  <div fxLayout="row" fxLayoutAlign="center center" *ngIf="isLoading; else productEle">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <ng-template #productEle>
+    <table mat-table [dataSource]="products" class="mat-elevation-z8">
+    
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+    
+      <!-- Features Column -->
+      <ng-container matColumnDef="features">
+        <th mat-header-cell *matHeaderCellDef> features </th>
+        <td mat-cell *matCellDef="let element">
+          <div
+            *ngIf="element.features && element.features.length > 0"
+            class="features-wrapper"
+            fxLayout="row wrap"
+          >
+            <div *ngFor="let feature of element.features" class="label">{{feature}}</div>
+          </div>
+        </td>
+      </ng-container>
+    
+      <!-- Plans Column -->
+      <ng-container matColumnDef="plans">
+        <th mat-header-cell *matHeaderCellDef> plans </th>
+        <td mat-cell *matCellDef="let element">
+          <div fxLayout="row wrap" *ngIf="element.plans && element.plans.length > 0">
+            <div *ngFor="let plan of element.plans" class="label">{{plan.priceCents}} {{plan.currency}}</div>
+          </div>
+        </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onHandleRowClick(row)"></tr>
+    </table>
+  </ng-template>
+</div>

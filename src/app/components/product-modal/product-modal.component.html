@@ -1,0 +1,23 @@
+<div class="product-modal">
+  <h1 mat-dialog-title>{{data.name}}</h1>
+  <div mat-dialog-content>
+    <div
+      *ngIf="data.features && data.features.length > 0"
+      class="features-wrapper"
+      fxLayout="row wrap"
+    >
+      <h4 class="title">Features</h4>
+      <div *ngFor="let feature of data.features" class="label">{{feature}}</div>
+    </div>
+    <div
+      *ngIf="data.plans && data.plans.length > 0"
+      fxLayout="row wrap"
+    >
+      <h4 class="title">Plans</h4>
+      <div *ngFor="let plan of data.plans" class="label">{{plan.priceCents}} {{plan.currency}}</div>
+    </div>
+  </div>
+  <div mat-dialog-actions align="end">
+    <button mat-button color="primary" (click)="onOkHandler()">Ok</button>
+  </div>
+</div>

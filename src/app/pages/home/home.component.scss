@@ -1,0 +1,38 @@
+@import "../../../variables.scss";
+
+.home {
+	text-align: center;
+  height: 100%;
+
+	h1 {
+		color: #fff;
+		font-size: 60px;
+		text-transform: uppercase;
+		font-weight: 700;
+		background: linear-gradient(to right, $primary 10%, $primary 50%, #57d75b 60%);
+		background-size: auto auto;
+		background-clip: border-box;
+		background-size: 200% auto;
+		color: #fff;
+		background-clip: text;
+		text-fill-color: transparent;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		animation: textclip 1.5s linear infinite;
+		display: inline-block;
+	}
+}
+
+@keyframes textclip {
+	to {
+		background-position: 200% center;
+	}
+}
+
+@media(max-width: 959px){
+  .home {
+    h1 {
+      font-size: 30px;
+    }
+  }
+}
